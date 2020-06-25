@@ -16,6 +16,7 @@ public class RealmManager {
     private RealmResults<studentDetails> realmResults;
     private Context context;
     private Realm realm;
+    private SharedPreferenceConfig sharedPreferenceConfig;
     public RealmManager(Context context, Realm realm) {
         this.context = context;
         this.realm = realm;
@@ -56,17 +57,21 @@ public class RealmManager {
     }
 
     public void fetchRegistrationData(String email, String pass){
+        sharedPreferenceConfig = new SharedPreferenceConfig(context);
         Registration registration = realm.where(Registration.class).equalTo(Registration.EMAIL, email).findFirst();
         if (null != registration){
             if (pass.equals(registration.getPass())){
                 Toast.makeText(context, "Login Succesfull", Toast.LENGTH_SHORT).show();
+                sharedPreferenceConfig.LoginStatus(true);
                 Intent intent = new Intent(context, MainActivity.class);
                 context.startActivity(intent);
             }else {
                 Toast.makeText(context, "Password does not exist", Toast.LENGTH_SHORT).show();
+                sharedPreferenceConfig.LoginStatus(false);
             }
         }else {
             Toast.makeText(context, "Email does not exist", Toast.LENGTH_SHORT).show();
+            sharedPreferenceConfig.LoginStatus(false);
         }
 
     }

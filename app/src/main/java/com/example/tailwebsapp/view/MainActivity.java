@@ -1,12 +1,14 @@
 package com.example.tailwebsapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton floatingActionButton;
     private SharedPreferenceConfig sharedPreferenceConfig;
     private StudentAdapter mAdapter;
+    private Toolbar toolbar;
     private RealmResults<studentDetails> realmResults;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
         floatingActionButton = findViewById(R.id.fabId);
         recyclerView = findViewById(R.id.rvId);
         logout = findViewById(R.id.logoutid);
+        // toolbar
+        toolbar = (Toolbar) findViewById(R.id.toolbarId);
+        setSupportActionBar(toolbar);
+
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         sharedPreferenceConfig = new SharedPreferenceConfig(this);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,5 +85,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

@@ -22,8 +22,6 @@ public class Validation {
     public void setLogInValidation(RealmManager realmManager, String email, String password, EditText emailEt, EditText passEt){
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
             realmManager.fetchRegistrationData(email,password);
-            sharedPreferenceConfig = new SharedPreferenceConfig(context);
-            sharedPreferenceConfig.LoginStatus(true);
         }else if (TextUtils.isEmpty(email)){
             emailEt.setError("Please enter your email");
         }else if (TextUtils.isEmpty(password)){
@@ -55,20 +53,27 @@ public class Validation {
         return status;
     }
 
-    public void setSigninValidation(RealmManager realmManager, String name, String email, String pass, EditText nameEt, EditText emailEt, EditText passEt){
+    public boolean setSigninValidation(RealmManager realmManager, String name, String email, String pass, EditText nameEt, EditText emailEt, EditText passEt){
+        boolean status = false;
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass)){
             try {
                 realmManager.setRegistrationData(name,email,pass);
+                status = true;
             }catch (Exception e){
                 Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                status = false;
             }
         }else if (TextUtils.isEmpty(name)){
             nameEt.setError("Please enter your name");
+            status = false;
         }else if (TextUtils.isEmpty(email)){
+            status = false;
             emailEt.setError("Please enter your email");
         }else if (TextUtils.isEmpty(pass)){
             passEt.setError("Please enter your password");
+            status = false;
         }
+        return status;
     }
 
 }

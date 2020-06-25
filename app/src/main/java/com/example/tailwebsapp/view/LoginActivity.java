@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.tailwebsapp.R;
+import com.example.tailwebsapp.controller.SharedPreferenceConfig;
 import com.example.tailwebsapp.controller.Validation;
 import com.example.tailwebsapp.model.Registration;
 import com.example.tailwebsapp.controller.RealmManager;
@@ -21,11 +22,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText emailEt, passEt;
     private Button button;
-    TextView textView;
+    private TextView textView;
     private String email, password;
     private RealmManager realmManager;
     private Validation validation;
     private Realm realm;
+    private SharedPreferenceConfig sharedPreferenceConfig;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +39,12 @@ public class LoginActivity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         realmManager = new RealmManager(this, realm);
         validation = new Validation(this, realm);
+        sharedPreferenceConfig = new SharedPreferenceConfig(this);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(LoginActivity.this, Registration.class);
-                startActivity(in);
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -51,6 +54,10 @@ public class LoginActivity extends AppCompatActivity {
                 email = emailEt.getText().toString();
                 password = passEt.getText().toString();
                 validation.setLogInValidation(realmManager, email, password,emailEt,passEt);
+                if (sharedPreferenceConfig.read_login_status()){
+                    finish();
+                }
+
             }
         });
     }

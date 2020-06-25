@@ -23,15 +23,4 @@ public class SharedPreferenceConfig {
         return status;
     }
 
-    public void SignInStatus(boolean status){
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("signin_status", status);
-        editor.commit();
-    }
-
-    public boolean read_signin_status(){
-        boolean status = false;
-        status = sharedPreferences.getBoolean("signin_status",false);
-        return status;
-    }
 }

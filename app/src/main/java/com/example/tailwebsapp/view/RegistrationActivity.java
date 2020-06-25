@@ -23,6 +23,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Realm realm;
     private Validation validation;
     private RealmManager realmManager;
+    private boolean status = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,10 @@ public class RegistrationActivity extends AppCompatActivity {
                 name = nameEt.getText().toString();
                 email = emailEt.getText().toString();
                 pass = passEt.getText().toString();
-                validation.setSigninValidation(realmManager, name,email,pass,nameEt,emailEt,passEt);
+                status = validation.setSigninValidation(realmManager, name,email,pass,nameEt,emailEt,passEt);
+                if (status){
+                    finish();
+                }
 
             }
         });

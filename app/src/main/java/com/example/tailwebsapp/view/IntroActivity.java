@@ -10,14 +10,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tailwebsapp.R;
+import com.example.tailwebsapp.controller.SharedPreferenceConfig;
 import com.example.tailwebsapp.controller.adapter.SlideViewPagerAdapter;
 
 public class IntroActivity extends AppCompatActivity {
 
     private TextView signIn;
     private LinearLayout loginLayout;
-    ViewPager viewPager;
-    SlideViewPagerAdapter slideViewPagerAdapter;
+    private ViewPager viewPager;
+    private SlideViewPagerAdapter slideViewPagerAdapter;
+    private SharedPreferenceConfig sharedPreferenceConfig;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,7 @@ public class IntroActivity extends AppCompatActivity {
         signIn = findViewById(R.id.signInId);
         loginLayout = findViewById(R.id.loginLayoutId);
         viewPager = findViewById(R.id.view_pager);
+        sharedPreferenceConfig = new SharedPreferenceConfig(this);
         slideViewPagerAdapter = new SlideViewPagerAdapter(IntroActivity.this);
         viewPager.setAdapter(slideViewPagerAdapter);
         signIn.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +35,7 @@ public class IntroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(IntroActivity.this, RegistrationActivity.class);
                 startActivity(intent);
+                finish();
             }
 
         });
