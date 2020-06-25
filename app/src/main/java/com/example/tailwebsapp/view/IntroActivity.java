@@ -45,6 +45,7 @@ public class IntroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
