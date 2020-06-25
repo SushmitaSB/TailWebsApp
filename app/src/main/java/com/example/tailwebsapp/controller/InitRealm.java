@@ -1,4 +1,4 @@
-package com.example.tailwebsapp;
+package com.example.tailwebsapp.controller;
 
 import android.app.Application;
 

@@ -1,4 +1,4 @@
-package com.example.tailwebsapp;
+package com.example.tailwebsapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.tailwebsapp.R;
+import com.example.tailwebsapp.controller.Validation;
+import com.example.tailwebsapp.model.Registration;
 import com.example.tailwebsapp.controller.RealmManager;
 
 import io.realm.Realm;
@@ -21,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView textView;
     private String email, password;
     private RealmManager realmManager;
+    private Validation validation;
     private Realm realm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         textView = findViewById(R.id.link_signup);
         realm = Realm.getDefaultInstance();
         realmManager = new RealmManager(this, realm);
+        validation = new Validation(this, realm);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,13 +50,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 email = emailEt.getText().toString();
                 password = passEt.getText().toString();
-                if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
-                    realmManager.fetchRegistrationData(email,password);
-                }else if (TextUtils.isEmpty(email)){
-                    emailEt.setError("Please enter your email");
-                }else if (TextUtils.isEmpty(password)){
-                    passEt.setError("Please enter your password");
-                }
+                validation.setLogInValidation(realmManager, email, password,emailEt,passEt);
             }
         });
     }

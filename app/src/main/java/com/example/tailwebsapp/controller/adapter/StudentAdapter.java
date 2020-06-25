@@ -1,4 +1,4 @@
-package com.example.tailwebsapp;
+package com.example.tailwebsapp.controller.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.tailwebsapp.R;
+import com.example.tailwebsapp.model.studentDetails;
 
 import io.realm.RealmResults;
 

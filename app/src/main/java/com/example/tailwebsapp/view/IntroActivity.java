@@ -1,4 +1,4 @@
-package com.example.tailwebsapp;
+package com.example.tailwebsapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.tailwebsapp.R;
 import com.example.tailwebsapp.controller.adapter.SlideViewPagerAdapter;
 
 public class IntroActivity extends AppCompatActivity {

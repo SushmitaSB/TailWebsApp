@@ -1,4 +1,4 @@
-package com.example.tailwebsapp;
+package com.example.tailwebsapp.model;
 
 import io.realm.RealmObject;
 

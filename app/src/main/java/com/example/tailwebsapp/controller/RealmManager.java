@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.example.tailwebsapp.LoginActivity;
-import com.example.tailwebsapp.MainActivity;
-import com.example.tailwebsapp.Registration;
-import com.example.tailwebsapp.studentDetails;
+import com.example.tailwebsapp.view.LoginActivity;
+import com.example.tailwebsapp.view.MainActivity;
+import com.example.tailwebsapp.model.Registration;
+import com.example.tailwebsapp.model.studentDetails;
 
 import io.realm.Realm;
 import io.realm.RealmResults;

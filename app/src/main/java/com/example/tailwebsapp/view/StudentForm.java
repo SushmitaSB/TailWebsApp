@@ -1,4 +1,4 @@
-package com.example.tailwebsapp;
+package com.example.tailwebsapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.tailwebsapp.R;
 import com.example.tailwebsapp.controller.RealmManager;
+import com.example.tailwebsapp.controller.Validation;
 
 import io.realm.Realm;
 
@@ -19,7 +21,9 @@ public class StudentForm extends AppCompatActivity {
     Button button;
     private String name, sub, marks;
     private RealmManager realmManager;
+    private Validation validation;
     private Realm realm;
+    private boolean status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,7 @@ public class StudentForm extends AppCompatActivity {
         button = findViewById(R.id.btn_submit);
         realm = Realm.getDefaultInstance();
         realmManager = new RealmManager(this, realm);
+        validation = new Validation(this, realm);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,20 +42,15 @@ public class StudentForm extends AppCompatActivity {
                 name = nameEt.getText().toString();
                 sub = subEt.getText().toString();
                 marks = marksEt.getText().toString();
-                if (!TextUtils.isEmpty(name) &&!TextUtils.isEmpty(sub) && !TextUtils.isEmpty(marks) ){
-                    try {
-                        realmManager.setDataInStudentDetails(name, sub, marks);
+                try {
+                   status = validation.setFormValidation(realmManager, name, sub, marks, nameEt, subEt, marksEt);
+                   if (status){
                         finish();
-                    }catch (Exception ex){
-                        Toast.makeText(StudentForm.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }else if(TextUtils.isEmpty(name)){
-                    nameEt.setError("Enter student name");
-                }else if (TextUtils.isEmpty(sub)){
-                    subEt.setError("Enter subject name");
-                }else if (TextUtils.isEmpty(marks)){
-                    marksEt.setError("Enter marks");
+                   }
+                }catch (Exception ex){
+                    Toast.makeText(StudentForm.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
     }
