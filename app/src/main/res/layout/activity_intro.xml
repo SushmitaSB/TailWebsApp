@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2"
+    android:orientation="vertical"
+    tools:context=".IntroActivity">
+    
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1.2"
+        android:orientation="vertical">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+<LinearLayout
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="0sp"
+    android:layout_weight="0.8"
+    android:orientation="vertical">
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10sp"
+      android:layout_marginBottom="10sp"
+      android:textColor="@color/blue"
+      android:textStyle="bold"
+      android:textSize="30sp"
+      android:text="@string/world_of_opportunity"
+      android:gravity="center"
+      android:paddingLeft="10sp"
+      android:paddingRight="10sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:text="@string/make_your_university"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_marginRight="20sp"
+        android:layout_marginLeft="20sp"
+        android:layout_height="44sp"
+        android:layout_marginTop="18sp"
+        android:layout_marginBottom="15sp"
+        android:text="@string/get_started"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:background="@drawable/button_background"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/grey"/>
+    <LinearLayout
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:id="@+id/loginLayoutId"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:gravity="right"
+            android:text="@string/already_have_an_account"/>
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:text="@string/login"
+            android:textStyle="bold"
+            android:textColor="@color/light_blue"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:id="@+id/signInId"
+        android:text="@string/signIn"
+        android:textStyle="bold"
+        android:textColor="@color/light_blue"/>
+</LinearLayout>
+</LinearLayout>

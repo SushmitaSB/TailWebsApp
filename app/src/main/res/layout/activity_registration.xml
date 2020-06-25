@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".RegistrationActivity">
+
+    <EditText
+        android:padding="25sp"
+        android:id="@+id/firstNameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:hint="Name"
+        android:inputType="text"
+        android:paddingBottom="8dp"
+        android:textColorHint="@color/grey"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/blue"
+        android:textSize="20sp">
+    </EditText>
+
+    <EditText
+        android:padding="25sp"
+        android:id="@+id/emailid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:hint="email"
+        android:inputType="textEmailAddress"
+        android:paddingBottom="8dp"
+        android:textColorHint="@color/grey"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/blue"
+        android:textSize="20sp">
+    </EditText>
+    <EditText
+        android:padding="25sp"
+        android:id="@+id/passId"
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:hint="Password"
+        android:paddingBottom="8dp"
+        android:textColorHint="@color/grey"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:textColor="#6d6e71"
+        android:textSize="20sp">
+    </EditText>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginTop="25sp"
+        android:layout_marginBottom="25sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textAllCaps="false"
+        android:text="@string/signIn"
+        android:id="@+id/btId"
+        android:textColor="@color/white"
+        android:background="@drawable/button_background"/>
+
+</LinearLayout>
