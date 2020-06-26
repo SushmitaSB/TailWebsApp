@@ -3,10 +3,8 @@ package com.example.tailwebsapp.controller;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.widget.TextView;
-
-import androidx.appcompat.app.ActionBar;
+import androidx.core.graphics.ColorUtils;
 import androidx.palette.graphics.Palette;
 
 public class SetColor {
@@ -31,7 +29,7 @@ public class SetColor {
 
                         if (swatch != null) {
                             titleTextColor = swatch.getRgb();
-                            //titleTextColor = ColorUtils.setAlphaComponent(titleTextColor, 255);
+                            titleTextColor = ColorUtils.setAlphaComponent(titleTextColor, 255);
                         }
                         textView.setTextColor(titleTextColor);
                         textView1.setTextColor(titleTextColor);

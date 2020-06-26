@@ -74,9 +74,9 @@ public class SlideViewPagerAdapter extends PagerAdapter {
             case 2: indicator1.setImageResource(R.drawable.non_active_dot_xml);
                     indicator2.setImageResource(R.drawable.non_active_dot_xml);
                     indicator3.setImageResource(R.drawable.active_dot_layout);
-                    linearLayout.setBackgroundResource(R.drawable.splash_img);
+                    linearLayout.setBackgroundResource(R.drawable.earth_img);
                     Bitmap bitmap2 = BitmapFactory.decodeResource(context.getResources(),
-                        R.drawable.splash_img);
+                        R.drawable.earth_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap2);
                     textViewHeading.setText(R.string.postgraduate);
                     textView.setText(R.string.join);

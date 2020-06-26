@@ -7,70 +7,145 @@
     android:orientation="vertical"
     tools:context=".view.RegistrationActivity">
 
-    <EditText
-        android:padding="25sp"
-        android:id="@+id/firstNameET"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:hint="Name"
-        android:inputType="text"
-        android:paddingBottom="8dp"
-        android:textColorHint="@color/grey"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="8dp"
-        android:textColor="@color/blue"
-        android:textSize="20sp">
-    </EditText>
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
 
-    <EditText
-        android:padding="25sp"
-        android:id="@+id/emailid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:hint="email"
-        android:inputType="textEmailAddress"
-        android:paddingBottom="8dp"
-        android:textColorHint="@color/grey"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="8dp"
-        android:textColor="@color/blue"
-        android:textSize="20sp">
-    </EditText>
-    <EditText
-        android:padding="25sp"
-        android:id="@+id/passId"
-        android:inputType="phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:hint="Password"
-        android:paddingBottom="8dp"
-        android:textColorHint="@color/grey"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="8dp"
-        android:textColor="#6d6e71"
-        android:textSize="20sp">
-    </EditText>
+        <ImageView android:src="@drawable/univ_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="40sp"
+            android:layout_marginBottom="54dp"
+            android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="25sp"
-        android:layout_marginLeft="25sp"
-        android:layout_marginTop="25sp"
-        android:layout_marginBottom="25sp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif"
-        android:textAllCaps="false"
-        android:text="@string/signIn"
-        android:id="@+id/btId"
-        android:textColor="@color/white"
-        android:background="@drawable/button_background"/>
+        <!-- Name Label -->
+
+        <EditText android:id="@+id/firstNameET"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:inputType="text"
+            android:layout_margin="5sp"
+            android:gravity="center"
+            android:background="@drawable/edit_text_shape"
+            android:hint="Name"/>
+
+        <!-- Email Label -->
+
+        <EditText android:id="@+id/emailid"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:background="@drawable/edit_text_shape"
+            android:inputType="textEmailAddress"
+            android:layout_margin="5sp"
+            android:gravity="center"
+            android:hint="Email" />
+
+
+        <!-- Password Label -->
+
+        <EditText android:id="@+id/passId"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:inputType="textPassword"
+            android:layout_margin="5sp"
+            android:gravity="center"
+            android:background="@drawable/edit_text_shape"
+            android:hint="Password"/>
+
+
+        <Button
+            android:id="@+id/btId"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/button_background"
+            android:text= "@string/signIn"/>
+
+        <TextView android:id="@+id/loginId"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textColor="@color/light_blue"
+            android:text= "@string/already_have_an_account"
+            android:gravity="center"
+            android:textSize="16dip"/>
+
+    </LinearLayout>
+
+<!--    <EditText-->
+<!--        android:padding="25sp"-->
+<!--        android:id="@+id/firstNameET"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center|left"-->
+<!--        android:hint="Name"-->
+<!--        android:inputType="text"-->
+<!--        android:paddingBottom="8dp"-->
+<!--        android:textColorHint="@color/grey"-->
+<!--        android:paddingLeft="16dp"-->
+<!--        android:paddingRight="16dp"-->
+<!--        android:paddingTop="8dp"-->
+<!--        android:textColor="@color/blue"-->
+<!--        android:textSize="20sp">-->
+<!--    </EditText>-->
+
+<!--    <EditText-->
+<!--        android:padding="25sp"-->
+<!--        android:id="@+id/emailid"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center|left"-->
+<!--        android:hint="email"-->
+<!--        android:inputType="textEmailAddress"-->
+<!--        android:paddingBottom="8dp"-->
+<!--        android:textColorHint="@color/grey"-->
+<!--        android:paddingLeft="16dp"-->
+<!--        android:paddingRight="16dp"-->
+<!--        android:paddingTop="8dp"-->
+<!--        android:textColor="@color/blue"-->
+<!--        android:textSize="20sp">-->
+<!--    </EditText>-->
+<!--    <EditText-->
+<!--        android:padding="25sp"-->
+<!--        android:id="@+id/passId"-->
+<!--        android:inputType="phone"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center|left"-->
+<!--        android:hint="Password"-->
+<!--        android:paddingBottom="8dp"-->
+<!--        android:textColorHint="@color/grey"-->
+<!--        android:paddingLeft="16dp"-->
+<!--        android:paddingRight="16dp"-->
+<!--        android:paddingTop="8dp"-->
+<!--        android:textColor="#6d6e71"-->
+<!--        android:textSize="20sp">-->
+<!--    </EditText>-->
+
+<!--    <Button-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginRight="25sp"-->
+<!--        android:layout_marginLeft="25sp"-->
+<!--        android:layout_marginTop="25sp"-->
+<!--        android:layout_marginBottom="25sp"-->
+<!--        android:textSize="25sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:fontFamily="sans-serif"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:text="@string/signIn"-->
+<!--        android:id="@+id/btId"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:background="@drawable/button_background"/>-->
 
 </LinearLayout>

@@ -33,7 +33,7 @@
       android:layout_marginBottom="10sp"
       android:textColor="@color/blue"
       android:textStyle="bold"
-      android:textSize="30sp"
+      android:textSize="25sp"
       android:text="@string/world_of_opportunity"
       android:gravity="center"
       android:paddingLeft="10sp"
@@ -43,20 +43,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="14sp"
+        android:textSize="13sp"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
         android:text="@string/make_your_university"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_marginRight="20sp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20sp"
-        android:layout_height="44sp"
         android:layout_marginTop="18sp"
+        android:layout_marginRight="20sp"
         android:layout_marginBottom="15sp"
+        android:background="@drawable/button_background"
         android:text="@string/get_started"
-        android:textColor="@color/white"
         android:textAllCaps="false"
-        android:background="@drawable/button_background"/>
+        android:textColor="@color/white" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1sp"
@@ -92,6 +94,8 @@
         android:textSize="16sp"
         android:gravity="center"
         android:id="@+id/signInId"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
         android:text="@string/signIn"
         android:textStyle="bold"
         android:textColor="@color/light_blue"/>
