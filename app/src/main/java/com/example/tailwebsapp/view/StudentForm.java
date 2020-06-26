@@ -13,11 +13,18 @@ import com.example.tailwebsapp.R;
 import com.example.tailwebsapp.controller.RealmManager;
 import com.example.tailwebsapp.controller.Validation;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.realm.Realm;
 
 public class StudentForm extends AppCompatActivity {
-
-    EditText nameEt, subEt, marksEt;
+    @BindView(R.id.input_name)
+    EditText nameEt;
+    @BindView(R.id.input_subject)
+    EditText subEt;
+    @BindView(R.id.input_marks)
+    EditText marksEt;
+    @BindView(R.id.btn_submit)
     Button button;
     private String name, sub, marks;
     private RealmManager realmManager;
@@ -28,14 +35,10 @@ public class StudentForm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_form);
-        nameEt = findViewById(R.id.input_name);
-        subEt = findViewById(R.id.input_subject);
-        marksEt = findViewById(R.id.input_marks);
-        button = findViewById(R.id.btn_submit);
-        realm = Realm.getDefaultInstance();
-        realmManager = new RealmManager(this, realm);
-        validation = new Validation(this, realm);
+        //initializing variables
+        initializedVariables();
 
+        //submit button click
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,5 +56,12 @@ public class StudentForm extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void initializedVariables() {
+        ButterKnife.bind(this);
+        realm = Realm.getDefaultInstance();
+        realmManager = new RealmManager(this, realm);
+        validation = new Validation(this, realm);
     }
 }

@@ -19,6 +19,7 @@ public class Validation {
         this.realm = realm;
     }
 
+    //login field validation
     public void setLogInValidation(RealmManager realmManager, String email, String password, EditText emailEt, EditText passEt){
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
             realmManager.fetchRegistrationData(email,password);
@@ -29,6 +30,7 @@ public class Validation {
         }
     }
 
+    //StudentForm validation
     public boolean setFormValidation(RealmManager realmManager, String name, String sub, String marks, EditText nameEt, EditText subEt, EditText marksEt){
        boolean status = false;
         if (!TextUtils.isEmpty(name) &&!TextUtils.isEmpty(sub) && !TextUtils.isEmpty(marks) ){
@@ -53,6 +55,7 @@ public class Validation {
         return status;
     }
 
+    //Registration field validation
     public boolean setSigninValidation(RealmManager realmManager, String name, String email, String pass, EditText nameEt, EditText emailEt, EditText passEt){
         boolean status = false;
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass)){

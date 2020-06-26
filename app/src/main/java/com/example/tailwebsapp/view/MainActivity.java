@@ -19,47 +19,47 @@ import com.example.tailwebsapp.controller.adapter.StudentAdapter;
 import com.example.tailwebsapp.model.studentDetails;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
+   @BindView(R.id.logoutid)
     TextView logout;
+    @BindView(R.id.rvId)
+    RecyclerView recyclerView;
+    @BindView(R.id.fabId)
+    FloatingActionButton floatingActionButton;
+    @BindView(R.id.toolbarId)
+    Toolbar toolbar;
+    public static final String TAG = "MainActivity";
     private RealmManager realmManager;
     private Realm realm;
-    private RecyclerView recyclerView;
-    private FloatingActionButton floatingActionButton;
     private SharedPreferenceConfig sharedPreferenceConfig;
     private StudentAdapter mAdapter;
-    private Toolbar toolbar;
+
     private RealmResults<studentDetails> realmResults;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        floatingActionButton = findViewById(R.id.fabId);
-        recyclerView = findViewById(R.id.rvId);
-        logout = findViewById(R.id.logoutid);
-        // toolbar
-        toolbar = (Toolbar) findViewById(R.id.toolbarId);
-        setSupportActionBar(toolbar);
+        //initializing Variables
+        initializedVariables();
 
-        // add back arrow to toolbar
-        if (getSupportActionBar() != null){
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
-        sharedPreferenceConfig = new SharedPreferenceConfig(this);
+        //log out button click
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sharedPreferenceConfig.LoginStatus(false);
                 Intent intent = new Intent(MainActivity.this, IntroActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
-        realm = Realm.getDefaultInstance();
-        realmManager = new RealmManager(this, realm);
+
+        // floating action button click
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,18 +67,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
+
+        //fetching all  data from studebtDetails
         realmResults = realmManager.fetchStudentDetails();
+        //set recyclerview
         if (null != realmResults){
             mAdapter = new StudentAdapter(this, realmResults);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setAdapter(mAdapter);
         }
 
+        //whenever the database will update or change automatically addchangeListner will be triggered.
         realmResults.addChangeListener(new RealmChangeListener<RealmResults<studentDetails>>() {
             @Override
             public void onChange(RealmResults<studentDetails> studentDetails) {
+                //set adapter
                 mAdapter = new StudentAdapter(MainActivity.this, realmResults);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(mAdapter);
@@ -87,12 +90,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void initializedVariables() {
+        ButterKnife.bind(this);
+
+        // toolbar
+        setSupportActionBar(toolbar);
+
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+        sharedPreferenceConfig = new SharedPreferenceConfig(this);
+        realm = Realm.getDefaultInstance();
+        realmManager = new RealmManager(this, realm);
+        //set layout manager
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to preview activity (if there is any)
-        }
+    }
 
         return super.onOptionsItemSelected(item);
     }

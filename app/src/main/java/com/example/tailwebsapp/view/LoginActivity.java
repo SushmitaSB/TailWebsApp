@@ -16,13 +16,20 @@ import com.example.tailwebsapp.controller.Validation;
 import com.example.tailwebsapp.model.Registration;
 import com.example.tailwebsapp.controller.RealmManager;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.realm.Realm;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText emailEt, passEt;
-    private Button button;
-    private TextView textView;
+    @BindView(R.id.input_email)
+    EditText emailEt;
+    @BindView(R.id.input_password)
+    EditText passEt;
+    @BindView(R.id.btn_login)
+    Button button;
+    @BindView(R.id.link_signup)
+    TextView textView;
     private String email, password;
     private RealmManager realmManager;
     private Validation validation;
@@ -32,14 +39,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        emailEt = findViewById(R.id.input_email);
-        passEt = findViewById(R.id.input_password);
-        button = findViewById(R.id.btn_login);
-        textView = findViewById(R.id.link_signup);
-        realm = Realm.getDefaultInstance();
-        realmManager = new RealmManager(this, realm);
-        validation = new Validation(this, realm);
-        sharedPreferenceConfig = new SharedPreferenceConfig(this);
+        //initialized variables
+        initializedVariables();
+
+        //signin text click
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //login button click
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,5 +64,13 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void initializedVariables() {
+        ButterKnife.bind(this);
+        realm = Realm.getDefaultInstance();
+        realmManager = new RealmManager(this, realm);
+        validation = new Validation(this, realm);
+        sharedPreferenceConfig = new SharedPreferenceConfig(this);
     }
 }

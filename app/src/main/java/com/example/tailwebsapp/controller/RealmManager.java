@@ -17,11 +17,13 @@ public class RealmManager {
     private Context context;
     private Realm realm;
     private SharedPreferenceConfig sharedPreferenceConfig;
+
+    //constructor
     public RealmManager(Context context, Realm realm) {
         this.context = context;
         this.realm = realm;
     }
-
+    // fetching student details from realm database
     public RealmResults<studentDetails> fetchStudentDetails(){
 
         realm.executeTransaction(new Realm.Transaction() {
@@ -34,6 +36,7 @@ public class RealmManager {
         return realmResults;
     }
 
+    //set student data in realm database
     public void setDataInStudentDetails(String name, String sub, String marks){
             realm.executeTransaction(new Realm.Transaction() {
                 @Override
@@ -56,6 +59,7 @@ public class RealmManager {
 
     }
 
+    //fetch registration data from database
     public void fetchRegistrationData(String email, String pass){
         sharedPreferenceConfig = new SharedPreferenceConfig(context);
         Registration registration = realm.where(Registration.class).equalTo(Registration.EMAIL, email).findFirst();
@@ -76,6 +80,7 @@ public class RealmManager {
 
     }
 
+    //set registraion data in database
     public void setRegistrationData(String name, String Email, String pass){
         realm.executeTransaction(new Realm.Transaction() {
             @Override

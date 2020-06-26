@@ -10,6 +10,7 @@ public class InitRealm extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //initialize realm
         Realm.init(this);
         RealmConfiguration configuration = new RealmConfiguration.Builder().build();
         Realm.setDefaultConfiguration(configuration);

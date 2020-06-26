@@ -25,12 +25,13 @@ public class SetColor {
                             swatch = palette.getSwatches().get(0);
                         }
 
-                        int titleTextColor = Color.WHITE;
+                        int titleTextColor = Color.WHITE; //initialized titleTextColor
 
-                        if (swatch != null) {
+                        if (swatch != null) { //checking swatch is null or not
                             titleTextColor = swatch.getRgb();
                             titleTextColor = ColorUtils.setAlphaComponent(titleTextColor, 255);
                         }
+                        //set the color on textView
                         textView.setTextColor(titleTextColor);
                         textView1.setTextColor(titleTextColor);
 

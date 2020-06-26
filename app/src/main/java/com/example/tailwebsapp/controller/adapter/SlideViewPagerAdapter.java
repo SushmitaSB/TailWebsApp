@@ -43,12 +43,15 @@ public class SlideViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slider_screen,container,false);
-        indicator1 = view.findViewById(R.id.ind1);
-        indicator2 = view.findViewById(R.id.ind2);
-        indicator3 = view.findViewById(R.id.ind3);
-        linearLayout = view.findViewById(R.id.backgroundLayout);
-        textViewHeading = view.findViewById(R.id.tvHeading);
-        textView = view.findViewById(R.id.tvText);
+        // finding all the ids of views
+        initializedViews(view);
+        //set text color according to background image by calling serColor class object.
+        setTextViewColor(position);
+        container.addView(view);
+        return view;
+    }
+
+    private void setTextViewColor(int position) {
         setColor = new SetColor(context);
         switch (position){
             case 0: indicator1.setImageResource(R.drawable.active_dot_layout);
@@ -82,8 +85,15 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                     textView.setText(R.string.join);
                 break;
         }
-        container.addView(view);
-        return view;
+    }
+
+    private void initializedViews(View view) {
+        indicator1 = view.findViewById(R.id.ind1);
+        indicator2 = view.findViewById(R.id.ind2);
+        indicator3 = view.findViewById(R.id.ind3);
+        linearLayout = view.findViewById(R.id.backgroundLayout);
+        textViewHeading = view.findViewById(R.id.tvHeading);
+        textView = view.findViewById(R.id.tvText);
     }
 
     @Override

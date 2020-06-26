@@ -25,6 +25,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHo
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //inflating the layout
         View itemView = LayoutInflater.from(context)
                 .inflate(R.layout.row_layout_for_recycler, parent, false);
         return new MyViewHolder(itemView);
@@ -32,6 +33,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+            //set text on views
             holder.textViewName.setText(realmResults.get(position).getName());
             holder.textViewSub.setText(realmResults.get(position).getSubject());
             holder.textViewMarks.setText(realmResults.get(position).getMarks());
@@ -46,6 +48,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHo
         TextView textViewName, textViewSub, textViewMarks;
         MyViewHolder(View view) {
             super(view);
+                //finding the id of view
                 textViewName = view.findViewById(R.id.nameId);
                 textViewSub = view.findViewById(R.id.subjectId);
                 textViewMarks = view.findViewById(R.id.marksId);

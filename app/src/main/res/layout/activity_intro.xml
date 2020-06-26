@@ -57,6 +57,7 @@
         android:layout_marginBottom="15sp"
         android:background="@drawable/button_background"
         android:text="@string/get_started"
+        android:id="@+id/getStarted"
         android:textAllCaps="false"
         android:textColor="@color/white" />
     <View
