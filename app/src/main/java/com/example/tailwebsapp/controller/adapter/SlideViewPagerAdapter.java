@@ -47,12 +47,11 @@ public class SlideViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.slider_screen,container,false);
+        View view = layoutInflater.inflate(R.layout.layout,container,false);
         // finding all the ids of views
         initializedViews(view);
         //set text color according to background image by calling serColor class object.
         setTextViewColor(position);
-
         container.addView(view);
         return view;
     }
