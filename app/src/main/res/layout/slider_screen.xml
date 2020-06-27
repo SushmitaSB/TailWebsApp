@@ -25,8 +25,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_below="@id/backgroundLayout"
-        android:layout_marginTop="-112dp"
-        >
+        android:layout_marginTop="-112dp">
         <TextView
             android:id="@+id/tvHeading"
             android:layout_width="wrap_content"
