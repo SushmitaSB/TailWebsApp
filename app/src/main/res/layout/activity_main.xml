@@ -96,9 +96,20 @@
    <androidx.recyclerview.widget.RecyclerView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
+       android:visibility="gone"
        android:id="@+id/rvId">
 
    </androidx.recyclerview.widget.RecyclerView>
+
+    <ImageView
+        android:layout_marginTop="60sp"
+        android:layout_marginBottom="20sp"
+        android:layout_width="400sp"
+        android:layout_height="400sp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/nodataId"
+        android:src="@drawable/nodata"/>
+
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

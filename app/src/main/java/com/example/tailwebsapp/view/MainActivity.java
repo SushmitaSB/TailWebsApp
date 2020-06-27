@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tailwebsapp.R;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
     @BindView(R.id.toolbarId)
     Toolbar toolbar;
+    @BindView(R.id.nodataId)
+    ImageView imageView;
     public static final String TAG = "MainActivity";
     private RealmManager realmManager;
     private Realm realm;
@@ -71,10 +74,15 @@ public class MainActivity extends AppCompatActivity {
         //fetching all  data from studebtDetails
         realmResults = realmManager.fetchStudentDetails();
         //set recyclerview
-        if (null != realmResults){
+        if (realmResults.size() != 0){
+            imageView.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
             mAdapter = new StudentAdapter(this, realmResults);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setAdapter(mAdapter);
+        }else {
+            recyclerView.setVisibility(View.GONE);
+            imageView.setVisibility(View.VISIBLE);
         }
 
         //whenever the database will update or change automatically addchangeListner will be triggered.
@@ -82,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChange(RealmResults<studentDetails> studentDetails) {
                 //set adapter
+                recyclerView.setVisibility(View.VISIBLE);
+                imageView.setVisibility(View.GONE);
                 mAdapter = new StudentAdapter(MainActivity.this, realmResults);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(mAdapter);
