@@ -1,87 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <LinearLayout
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="340sp"
-        android:orientation="vertical"
+        android:layout_height="400sp"
+        android:scaleType="centerCrop"
         android:id="@+id/backgroundLayout"
-        android:weightSum="3"
-        android:background="@drawable/man_img">
+        android:src="@drawable/women"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0sp"
-            android:orientation="vertical"
-            android:layout_weight="1.8">
+    <ImageView
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:src="@drawable/univ_logo" />
 
-            <ImageView
-                android:layout_width="80sp"
-                android:layout_height="80sp"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:src="@drawable/univ_logo"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0sp"
-            android:orientation="vertical"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:layout_weight="1.2">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif"
-                android:id="@+id/tvHeading"
-                android:textSize="28sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:fontFamily="sans-serif"
-                android:id="@+id/tvText"
-                android:textColor="@color/white"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvHeading"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@id/backgroundLayout"
+        android:layout_marginTop="-112dp"
+        android:layout_marginBottom="363dp"
+        android:fontFamily="sans-serif"
+        android:text="gggggg"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
-        android:layout_marginTop="20sp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/active_dot_layout"
-            android:id="@+id/ind1"/>
-        <Space
-            android:layout_width="10sp"
-            android:layout_height="wrap_content"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ind2"
-            android:src="@drawable/non_active_dot_xml"/>
-        <Space
-            android:layout_width="10sp"
-            android:layout_height="wrap_content"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ind3"
-            android:src="@drawable/non_active_dot_xml"/>
-    </LinearLayout>
+        android:textColor="@color/blue"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
-</LinearLayout>
+         <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:layout_marginTop="-350sp"
+                    android:layout_marginLeft="20sp"
+                     android:layout_marginRight="20sp"
+                    android:layout_below="@id/tvHeading"
+                    android:text="kkkkk"
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/tvText"
+                    android:textColor="@color/blue"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/backgroundLayout"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="10sp">
+
+            <Space
+                android:layout_width="20sp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ind1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/active_dot_layout" />
+
+            <Space
+                android:layout_width="10sp"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/ind2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/non_active_dot_xml" />
+            <Space
+                android:layout_width="10sp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ind3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/non_active_dot_xml" />
+
+
+        </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="400sp"-->
+<!--        android:orientation="vertical"-->
+<!--        android:id="@+id/backgroundLayout"-->
+<!--        android:weightSum="3"-->
+<!--        android:background="@drawable/women"-->
+<!--        tools:ignore="MissingConstraints">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0sp"-->
+<!--            android:layout_weight="1.8"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="80sp"-->
+<!--                android:layout_height="80sp"-->
+<!--                android:layout_marginLeft="10sp"-->
+<!--                android:layout_marginRight="10sp"-->
+<!--                android:src="@drawable/univ_logo" />-->
+
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0sp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginLeft="20sp"-->
+<!--            android:layout_marginRight="20sp"-->
+<!--            android:layout_weight="1.2">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textStyle="bold"-->
+<!--                android:fontFamily="sans-serif"-->
+<!--                android:id="@+id/tvHeading"-->
+<!--                android:textSize="28sp"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="13sp"-->
+<!--                android:fontFamily="sans-serif"-->
+<!--                android:id="@+id/tvText"-->
+<!--                android:textColor="@color/white"/>-->
+
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginTop="30sp"-->
+<!--        android:layout_marginBottom="10sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        tools:layout_editor_absoluteX="20dp">-->
+
+<!--        <Space-->
+<!--            android:layout_width="20sp"-->
+<!--            android:layout_height="wrap_content" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ind1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/active_dot_layout" />-->
+
+<!--        <Space-->
+<!--            android:layout_width="10sp"-->
+<!--            android:layout_height="wrap_content" />-->
+<!--        <ImageView-->
+<!--            android:id="@+id/ind2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/non_active_dot_xml" />-->
+<!--        <Space-->
+<!--            android:layout_width="10sp"-->
+<!--            android:layout_height="wrap_content" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ind3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/non_active_dot_xml" />-->
+
+
+<!--    </LinearLayout>-->
+
+</RelativeLayout>

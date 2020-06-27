@@ -13,6 +13,7 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 
 public class RealmManager {
+    public static  boolean STATUS = false;
     private RealmResults<studentDetails> realmResults;
     private Context context;
     private Realm realm;
@@ -48,10 +49,12 @@ public class RealmManager {
                         studentDetails.setId(id);
                         studentDetails.setName(name);
                         studentDetails.setSubject(sub);
-                        studentDetails.setMarks(marks);
+                        studentDetails.setMarks(Float.parseFloat(marks));
                         realm.insertOrUpdate(studentDetails);
                     }else {
-                        details.setMarks(marks);
+                        float oldMarks = details.getMarks();
+                        float newMarks = oldMarks + Float.parseFloat(marks);
+                        details.setMarks(newMarks);
                         realm.insertOrUpdate(details);
                     }
                 }
@@ -101,11 +104,14 @@ public class RealmManager {
                     registration.setEmail(Email);
                     registration.setPass(pass);
                     realm.insertOrUpdate(registration);
+                    STATUS = true;
                     Toast.makeText(context, "Registration Successfull", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(context, LoginActivity.class);
                     context.startActivity(i);
                 }else {
+                    STATUS = false;
                     Toast.makeText(context, "This email is already used", Toast.LENGTH_SHORT).show();
+
                 }
 
             }

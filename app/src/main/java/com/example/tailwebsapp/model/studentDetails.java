@@ -4,7 +4,9 @@ import io.realm.RealmObject;
 
 public class studentDetails extends RealmObject {
     public static final String ID = "id";
-    private String id, name, subject, marks;
+    private String id, name, subject;
+
+    private float marks;
     public studentDetails (){
 
     }
@@ -14,6 +16,15 @@ public class studentDetails extends RealmObject {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+
+    public float getMarks() {
+        return marks;
+    }
+
+    public void setMarks(float marks) {
+        this.marks = marks;
     }
 
     public String getName() {
@@ -32,12 +43,5 @@ public class studentDetails extends RealmObject {
         this.subject = subject;
     }
 
-    public String getMarks() {
-        return marks;
-    }
-
-    public void setMarks(String marks) {
-        this.marks = marks;
-    }
 
 }

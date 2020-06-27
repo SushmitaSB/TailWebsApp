@@ -56,27 +56,40 @@ public class Validation {
     }
 
     //Registration field validation
-    public boolean setSigninValidation(RealmManager realmManager, String name, String email, String pass, EditText nameEt, EditText emailEt, EditText passEt){
-        boolean status = false;
+    public void setSigninValidation(RealmManager realmManager, String name, String email, String pass, EditText nameEt, EditText emailEt, EditText passEt){
+
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass)){
             try {
-                realmManager.setRegistrationData(name,email,pass);
-                status = true;
+
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+                if (email.matches(emailPattern))
+                {
+                    realmManager.setRegistrationData(name,email,pass);
+                   // status = true;
+
+                }
+                else
+                {
+                    Toast.makeText(context,"Invalid email address", Toast.LENGTH_SHORT).show();
+                    RealmManager.STATUS = false;
+                }
+
             }catch (Exception e){
                 Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-                status = false;
+                RealmManager.STATUS = false;
             }
         }else if (TextUtils.isEmpty(name)){
             nameEt.setError("Please enter your name");
-            status = false;
+            RealmManager.STATUS = false;
         }else if (TextUtils.isEmpty(email)){
-            status = false;
+            RealmManager.STATUS = false;
             emailEt.setError("Please enter your email");
         }else if (TextUtils.isEmpty(pass)){
             passEt.setError("Please enter your password");
-            status = false;
+            RealmManager.STATUS = false;
         }
-        return status;
+
     }
 
 }

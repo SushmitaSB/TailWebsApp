@@ -19,7 +19,7 @@ import com.example.tailwebsapp.controller.SetColor;
 public class SlideViewPagerAdapter extends PagerAdapter {
 
    private Context context;
-   private LinearLayout linearLayout;
+   private ImageView linearLayout;
    private TextView textViewHeading, textView;
    private ImageView indicator1, indicator2, indicator3;
    private SetColor setColor;
@@ -57,7 +57,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
             case 0: indicator1.setImageResource(R.drawable.active_dot_layout);
                     indicator2.setImageResource(R.drawable.non_active_dot_xml);
                     indicator3.setImageResource(R.drawable.non_active_dot_xml);
-                    linearLayout.setBackgroundResource(R.drawable.man_img);
+                    linearLayout.setImageResource(R.drawable.man_img);
                     Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
                             R.drawable.man_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap);
@@ -67,7 +67,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
             case 1: indicator1.setImageResource(R.drawable.non_active_dot_xml);
                     indicator2.setImageResource(R.drawable.active_dot_layout);
                     indicator3.setImageResource(R.drawable.non_active_dot_xml);
-                    linearLayout.setBackgroundResource(R.drawable.women_img);
+                    linearLayout.setImageResource(R.drawable.women_img);
                 Bitmap bitmap1 = BitmapFactory.decodeResource(context.getResources(),
                         R.drawable.women_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap1);
@@ -77,7 +77,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
             case 2: indicator1.setImageResource(R.drawable.non_active_dot_xml);
                     indicator2.setImageResource(R.drawable.non_active_dot_xml);
                     indicator3.setImageResource(R.drawable.active_dot_layout);
-                    linearLayout.setBackgroundResource(R.drawable.earth_img);
+                    linearLayout.setImageResource(R.drawable.earth_img);
                     Bitmap bitmap2 = BitmapFactory.decodeResource(context.getResources(),
                         R.drawable.earth_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap2);

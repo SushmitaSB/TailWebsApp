@@ -36,7 +36,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHo
             //set text on views
             holder.textViewName.setText(realmResults.get(position).getName());
             holder.textViewSub.setText(realmResults.get(position).getSubject());
-            holder.textViewMarks.setText(realmResults.get(position).getMarks());
+            holder.textViewMarks.setText(realmResults.get(position).getMarks() + "");
     }
 
     @Override

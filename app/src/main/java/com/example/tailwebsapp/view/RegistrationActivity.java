@@ -67,8 +67,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 //fetching all data from edittext
                 fetchingDataFromEditText();
                 //this method call will be helpful for validation
-                status = validation.setSigninValidation(realmManager, name,email,pass,nameEt,emailEt,passEt);
-                if (status){
+                 validation.setSigninValidation(realmManager, name,email,pass,nameEt,emailEt,passEt);
+                if (RealmManager.STATUS){
                     //if registration or signin is sucessfull then activity will be finished
                     finish();
                 }
