@@ -35,7 +35,7 @@ public class IntroActivity extends AppCompatActivity {
     private SlideViewPagerAdapter slideViewPagerAdapter;
     private String data;
     private Handler handler;
-    private int delay = 3000; //milliseconds
+    private int delay = 6000; //milliseconds
     private int page = 0;
     Runnable runnable = new Runnable() {
         public void run() {
