@@ -57,10 +57,7 @@ public class MainActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPreferenceConfig.LoginStatus(false);
-                Intent intent = new Intent(MainActivity.this, IntroActivity.class);
-                startActivity(intent);
-                finish();
+                setDialog("Are you sure you want to logout?", "logout");
             }
         });
 
@@ -68,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MainActivity.this, StudentForm.class);
                 startActivity(intent);
             }
@@ -134,19 +132,27 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        setDialog();
+        setDialog("Are you sure you want to exit?", "back");
     }
 
-    private void setDialog() {
+    private void setDialog(String s, String string) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder .setTitle("Closing application");
-        alertDialogBuilder.setMessage("Are you sure you want to exit?");
+        alertDialogBuilder.setMessage(s);
         alertDialogBuilder.setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-                        finish();
+                        if (string.equals("back")){
+                            finish();
+                        }else {
+                            sharedPreferenceConfig.LoginStatus(false);
+                            Intent intent = new Intent(MainActivity.this, IntroActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+
                     }
                 });
 
