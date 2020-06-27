@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
 
    private Context context;
    private ImageView linearLayout;
+   private  Animation a;
    private TextView textViewHeading, textView;
    private ImageView indicator1, indicator2, indicator3;
    private SetColor setColor;
@@ -47,6 +50,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
         initializedViews(view);
         //set text color according to background image by calling serColor class object.
         setTextViewColor(position);
+
         container.addView(view);
         return view;
     }
@@ -54,35 +58,56 @@ public class SlideViewPagerAdapter extends PagerAdapter {
     private void setTextViewColor(int position) {
         setColor = new SetColor(context);
         switch (position){
-            case 0: indicator1.setImageResource(R.drawable.active_dot_layout);
-                    indicator2.setImageResource(R.drawable.non_active_dot_xml);
-                    indicator3.setImageResource(R.drawable.non_active_dot_xml);
+            case 0:
                     linearLayout.setImageResource(R.drawable.man_img);
+                     a = AnimationUtils.loadAnimation(context, R.anim.scale);
+                     a.reset();
+                    linearLayout.clearAnimation();
+                    linearLayout.startAnimation(a);
                     Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
                             R.drawable.man_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap);
                     textViewHeading.setText(R.string.be_part);
                     textView.setText(R.string.our_world);
-                break;
-            case 1: indicator1.setImageResource(R.drawable.non_active_dot_xml);
-                    indicator2.setImageResource(R.drawable.active_dot_layout);
+                    indicator1.setImageResource(R.drawable.active_dot_layout);
+                    indicator1.clearAnimation();
+                    indicator1.startAnimation(a);
+                    indicator2.setImageResource(R.drawable.non_active_dot_xml);
                     indicator3.setImageResource(R.drawable.non_active_dot_xml);
+                    break;
+            case 1:
                     linearLayout.setImageResource(R.drawable.women_img);
-                Bitmap bitmap1 = BitmapFactory.decodeResource(context.getResources(),
+                    a = AnimationUtils.loadAnimation(context, R.anim.scale);
+                    a.reset();
+                    linearLayout.clearAnimation();
+                    linearLayout.startAnimation(a);
+                    Bitmap bitmap1 = BitmapFactory.decodeResource(context.getResources(),
                         R.drawable.women_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap1);
                     textViewHeading.setText(R.string.perfect_your);
                     textView.setText(R.string.everything);
+                    indicator1.setImageResource(R.drawable.non_active_dot_xml);
+                    indicator2.setImageResource(R.drawable.active_dot_layout);
+                    indicator2.clearAnimation();
+                    indicator2.startAnimation(a);
+                    indicator3.setImageResource(R.drawable.non_active_dot_xml);
                 break;
-            case 2: indicator1.setImageResource(R.drawable.non_active_dot_xml);
-                    indicator2.setImageResource(R.drawable.non_active_dot_xml);
-                    indicator3.setImageResource(R.drawable.active_dot_layout);
+            case 2:
                     linearLayout.setImageResource(R.drawable.earth_img);
+                    a = AnimationUtils.loadAnimation(context, R.anim.scale);
+                    a.reset();
+                    linearLayout.clearAnimation();
+                    linearLayout.startAnimation(a);
                     Bitmap bitmap2 = BitmapFactory.decodeResource(context.getResources(),
                         R.drawable.earth_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap2);
                     textViewHeading.setText(R.string.postgraduate);
                     textView.setText(R.string.join);
+                    indicator1.setImageResource(R.drawable.non_active_dot_xml);
+                    indicator2.setImageResource(R.drawable.non_active_dot_xml);
+                    indicator3.clearAnimation();
+                    indicator3.startAnimation(a);
+                    indicator3.setImageResource(R.drawable.active_dot_layout);
                 break;
         }
     }
