@@ -56,18 +56,20 @@ public class Validation {
     }
 
     //Registration field validation
-    public void setSigninValidation(RealmManager realmManager, String name, String email, String pass, EditText nameEt, EditText emailEt, EditText passEt){
+    public void setSigninValidation(RealmManager realmManager, String name, String email, String pass,String cPass, EditText nameEt, EditText emailEt, EditText passEt, EditText cPassEt){
 
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass)){
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass) && !TextUtils.isEmpty(cPass)){
             try {
 
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 if (email.matches(emailPattern))
                 {
-                    realmManager.setRegistrationData(name,email,pass);
-                   // status = true;
-
+                    if (pass.equals(cPass)){
+                        realmManager.setRegistrationData(name,email,pass);
+                    }else {
+                        Toast.makeText(context,"Password is not matching", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else
                 {
@@ -87,6 +89,9 @@ public class Validation {
             emailEt.setError("Please enter your email");
         }else if (TextUtils.isEmpty(pass)){
             passEt.setError("Please enter your password");
+            RealmManager.STATUS = false;
+        }else if (TextUtils.isEmpty(cPass)){
+            cPassEt.setError("Please enter your password");
             RealmManager.STATUS = false;
         }
 

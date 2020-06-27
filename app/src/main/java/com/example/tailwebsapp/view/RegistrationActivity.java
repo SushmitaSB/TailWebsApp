@@ -33,10 +33,13 @@ public class RegistrationActivity extends AppCompatActivity {
     @BindView(R.id.passId)
     EditText passEt;
 
+    @BindView(R.id.conPassId)
+    EditText conPassEt;
+
     @BindView(R.id.btId)
     Button button;
 
-    private String name, email, pass;
+    private String name, email, pass, cpass;
     private Realm realm;
     private Validation validation;
     private RealmManager realmManager;
@@ -67,7 +70,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 //fetching all data from edittext
                 fetchingDataFromEditText();
                 //this method call will be helpful for validation
-                 validation.setSigninValidation(realmManager, name,email,pass,nameEt,emailEt,passEt);
+                 validation.setSigninValidation(realmManager, name,email,pass, cpass,nameEt,emailEt,passEt,conPassEt);
                 if (RealmManager.STATUS){
                     //if registration or signin is sucessfull then activity will be finished
                     finish();
@@ -81,6 +84,7 @@ public class RegistrationActivity extends AppCompatActivity {
         name = nameEt.getText().toString();
         email = emailEt.getText().toString();
         pass = passEt.getText().toString();
+        cpass = conPassEt.getText().toString();
     }
 
     private void initializedVariables() {
