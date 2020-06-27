@@ -18,6 +18,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.example.tailwebsapp.R;
 import com.example.tailwebsapp.controller.SetColor;
 
+import java.util.TimerTask;
+
 public class SlideViewPagerAdapter extends PagerAdapter {
 
    private Context context;

@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -33,11 +34,42 @@ public class IntroActivity extends AppCompatActivity {
 
     private SlideViewPagerAdapter slideViewPagerAdapter;
     private String data;
+    private Handler handler;
+    private int delay = 3000; //milliseconds
+    private int page = 0;
+    Runnable runnable = new Runnable() {
+        public void run() {
+            if (slideViewPagerAdapter.getCount() == page) {
+                page = 0;
+            } else {
+                page++;
+            }
+            viewPager.setCurrentItem(page, true);
+            handler.postDelayed(this, delay);
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
         initializedVariables();
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                page = position;
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         //GetStarted button click
         bt.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +113,19 @@ public class IntroActivity extends AppCompatActivity {
 
     private void initializedVariables() {
         ButterKnife.bind(this);
+        handler = new Handler();
         slideViewPagerAdapter = new SlideViewPagerAdapter(IntroActivity.this);
         viewPager.setAdapter(slideViewPagerAdapter);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handler.postDelayed(runnable, delay);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
     }
 }
