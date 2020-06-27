@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 email = emailEt.getText().toString();
                 password = passEt.getText().toString();
                 validation.setLogInValidation(realmManager, email, password,emailEt,passEt);
-                if (sharedPreferenceConfig.read_login_status()){
+                if (RealmManager.LOGIN_STATUS){
                     finish();
                 }
 

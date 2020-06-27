@@ -14,6 +14,7 @@ import io.realm.RealmResults;
 
 public class RealmManager {
     public static  boolean STATUS = false;
+    public static  boolean LOGIN_STATUS = false;
     private RealmResults<studentDetails> realmResults;
     private Context context;
     private Realm realm;
@@ -70,14 +71,17 @@ public class RealmManager {
             if (pass.equals(registration.getPass())){
                 Toast.makeText(context, "Login Succesfull", Toast.LENGTH_SHORT).show();
                 sharedPreferenceConfig.LoginStatus(true);
+                LOGIN_STATUS = true;
                 Intent intent = new Intent(context, MainActivity.class);
                 context.startActivity(intent);
             }else {
                 Toast.makeText(context, "Password does not exist", Toast.LENGTH_SHORT).show();
+                LOGIN_STATUS = false;
                 sharedPreferenceConfig.LoginStatus(false);
             }
         }else {
             Toast.makeText(context, "Email does not exist", Toast.LENGTH_SHORT).show();
+            LOGIN_STATUS = false;
             sharedPreferenceConfig.LoginStatus(false);
         }
 
