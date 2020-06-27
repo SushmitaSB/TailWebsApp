@@ -13,16 +13,16 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="40sp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="3">
 
             <TextView
                 android:layout_width="0sp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="13sp"
                 android:layout_marginLeft="20sp"
@@ -34,7 +34,7 @@
                 android:id="@+id/nameId"/>
             <TextView
                 android:layout_width="0sp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="13sp"
                 android:inputType="text"
@@ -47,7 +47,7 @@
                 android:id="@+id/subjectId" />
             <TextView
                 android:layout_width="0sp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="13sp"
                 android:layout_marginLeft="20sp"
@@ -60,8 +60,5 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10sp" />
 
 </LinearLayout>
