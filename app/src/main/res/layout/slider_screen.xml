@@ -20,33 +20,41 @@
         android:layout_marginRight="10sp"
         android:src="@drawable/univ_logo" />
 
-    <TextView
-        android:id="@+id/tvHeading"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_below="@id/backgroundLayout"
         android:layout_marginTop="-112dp"
-        android:layout_marginBottom="363dp"
-        android:fontFamily="sans-serif"
-        android:text="gggggg"
-        android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
-        android:textColor="@color/blue"
-        android:textSize="28sp"
-        android:textStyle="bold" />
+        >
+        <TextView
+            android:id="@+id/tvHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/backgroundLayout"
+            android:fontFamily="sans-serif"
+            android:text="gggggg"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:textColor="@color/blue"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
-         <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:layout_marginTop="-350sp"
-                    android:layout_marginLeft="20sp"
-                     android:layout_marginRight="20sp"
-                    android:layout_below="@id/tvHeading"
-                    android:text="kkkkk"
-                    android:fontFamily="sans-serif"
-                    android:id="@+id/tvText"
-                    android:textColor="@color/blue"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_below="@id/tvHeading"
+            android:text="kkkkk"
+            android:fontFamily="sans-serif"
+            android:id="@+id/tvText"
+            android:textColor="@color/blue"/>
+
+    </LinearLayout>
 
     <LinearLayout
             android:layout_width="match_parent"
