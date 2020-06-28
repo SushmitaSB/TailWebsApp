@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.tailwebsapp.R;
 import com.example.tailwebsapp.controller.SharedPreferenceConfig;
+import com.example.tailwebsapp.controller.ZoomOutPageTransformer;
 import com.example.tailwebsapp.controller.adapter.SlideViewPagerAdapter;
 
 import butterknife.BindView;
@@ -115,6 +116,7 @@ public class IntroActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         handler = new Handler();
         slideViewPagerAdapter = new SlideViewPagerAdapter(IntroActivity.this);
+        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPager.setAdapter(slideViewPagerAdapter);
     }
     @Override

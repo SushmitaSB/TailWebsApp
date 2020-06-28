@@ -63,8 +63,8 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                     linearLayout.setImageResource(R.drawable.man_img);
                      a = AnimationUtils.loadAnimation(context, R.anim.scale);
                      a.reset();
-                    linearLayout.clearAnimation();
-                    linearLayout.startAnimation(a);
+//                    linearLayout.clearAnimation();
+//                    linearLayout.startAnimation(a);
                     Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
                             R.drawable.man_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap);
@@ -80,8 +80,8 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                     linearLayout.setImageResource(R.drawable.women_img);
                     a = AnimationUtils.loadAnimation(context, R.anim.scale);
                     a.reset();
-                    linearLayout.clearAnimation();
-                    linearLayout.startAnimation(a);
+//                    linearLayout.clearAnimation();
+//                    linearLayout.startAnimation(a);
                     Bitmap bitmap1 = BitmapFactory.decodeResource(context.getResources(),
                         R.drawable.women_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap1);
@@ -97,8 +97,8 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                     linearLayout.setImageResource(R.drawable.earth_img);
                     a = AnimationUtils.loadAnimation(context, R.anim.scale);
                     a.reset();
-                    linearLayout.clearAnimation();
-                    linearLayout.startAnimation(a);
+//                    linearLayout.clearAnimation();
+//                    linearLayout.startAnimation(a);
                     Bitmap bitmap2 = BitmapFactory.decodeResource(context.getResources(),
                         R.drawable.earth_img);
                     setColor.setTextColorForImage(textViewHeading,textView, bitmap2);
