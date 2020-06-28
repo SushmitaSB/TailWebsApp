@@ -6,9 +6,20 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="0sp"
+         android:layout_weight="0.98">
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="395sp"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:id="@+id/backgroundLayout"
         android:src="@drawable/women"/>
@@ -55,13 +66,16 @@
 
     </LinearLayout>
 
+     </RelativeLayout>
+
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0sp"
+            android:layout_weight="0.02"
+            android:gravity="bottom"
             android:orientation="horizontal"
             android:layout_below="@id/backgroundLayout"
-            android:layout_marginTop="20sp"
-            android:layout_marginBottom="10sp">
+            android:layout_marginTop="15sp">
 
             <Space
                 android:layout_width="20sp"
@@ -90,101 +104,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/non_active_dot_xml" />
-
-
         </LinearLayout>
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="400sp"-->
-<!--        android:orientation="vertical"-->
-<!--        android:id="@+id/backgroundLayout"-->
-<!--        android:weightSum="3"-->
-<!--        android:background="@drawable/women"-->
-<!--        tools:ignore="MissingConstraints">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0sp"-->
-<!--            android:layout_weight="1.8"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <ImageView-->
-<!--                android:layout_width="80sp"-->
-<!--                android:layout_height="80sp"-->
-<!--                android:layout_marginLeft="10sp"-->
-<!--                android:layout_marginRight="10sp"-->
-<!--                android:src="@drawable/univ_logo" />-->
-
-
-<!--        </LinearLayout>-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0sp"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_marginLeft="20sp"-->
-<!--            android:layout_marginRight="20sp"-->
-<!--            android:layout_weight="1.2">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textStyle="bold"-->
-<!--                android:fontFamily="sans-serif"-->
-<!--                android:id="@+id/tvHeading"-->
-<!--                android:textSize="28sp"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="13sp"-->
-<!--                android:fontFamily="sans-serif"-->
-<!--                android:id="@+id/tvText"-->
-<!--                android:textColor="@color/white"/>-->
-
-<!--        </LinearLayout>-->
-
-<!--    </LinearLayout>-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_marginTop="30sp"-->
-<!--        android:layout_marginBottom="10sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        tools:ignore="MissingConstraints"-->
-<!--        tools:layout_editor_absoluteX="20dp">-->
-
-<!--        <Space-->
-<!--            android:layout_width="20sp"-->
-<!--            android:layout_height="wrap_content" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/ind1"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/active_dot_layout" />-->
-
-<!--        <Space-->
-<!--            android:layout_width="10sp"-->
-<!--            android:layout_height="wrap_content" />-->
-<!--        <ImageView-->
-<!--            android:id="@+id/ind2"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/non_active_dot_xml" />-->
-<!--        <Space-->
-<!--            android:layout_width="10sp"-->
-<!--            android:layout_height="wrap_content" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/ind3"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/non_active_dot_xml" />-->
-
-
-<!--    </LinearLayout>-->
-
+    </LinearLayout>
 </RelativeLayout>
