@@ -43,9 +43,8 @@
                 android:text="Log Out"
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="10sp"
-                android:textSize="18sp"
+                android:textSize="13sp"
                 android:textColor="@color/white"
-                android:textStyle="bold"
                 android:gravity="center|end"
                 android:id="@+id/logoutid"
                 android:fontFamily="sans-serif"/>
@@ -65,7 +64,7 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textColor="@color/blue"
             android:text="Name"
             android:gravity="center"/>
@@ -76,7 +75,7 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textColor="@color/blue"
             android:text="Subject"
             android:gravity="center"/>
@@ -87,7 +86,7 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textColor="@color/blue"
             android:text="Marks"
             android:gravity="center"/>
