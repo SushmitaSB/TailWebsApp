@@ -31,7 +31,10 @@ public class RealmManager {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                realmResults = realm.where(studentDetails.class).findAll();
+                sharedPreferenceConfig = new SharedPreferenceConfig(context);
+                int userId = sharedPreferenceConfig.read_login_user();
+                realmResults = realm.where(studentDetails.class)
+                        .equalTo(studentDetails.UserId, userId).findAll();
             }
         });
 
@@ -44,12 +47,15 @@ public class RealmManager {
                 @Override
                 public void execute(Realm realm) {
                     String id = name + sub;
+                    sharedPreferenceConfig = new SharedPreferenceConfig(context);
+                    int userId = sharedPreferenceConfig.read_login_user();
                     studentDetails details = realm.where(studentDetails.class).equalTo(studentDetails.ID, id).findFirst();
                     if (null == details) {
                         studentDetails studentDetails = new studentDetails();
                         studentDetails.setId(id);
                         studentDetails.setName(name);
                         studentDetails.setSubject(sub);
+                        studentDetails.setUser_id(userId);
                         studentDetails.setMarks(Float.parseFloat(marks));
                         realm.insertOrUpdate(studentDetails);
                     }else {
@@ -71,6 +77,7 @@ public class RealmManager {
             if (pass.equals(registration.getPass())){
                 Toast.makeText(context, "Login Succesfull", Toast.LENGTH_SHORT).show();
                 sharedPreferenceConfig.LoginStatus(true);
+                sharedPreferenceConfig.LoginUser(registration.getId());
                 LOGIN_STATUS = true;
                 Intent intent = new Intent(context, MainActivity.class);
                 context.startActivity(intent);

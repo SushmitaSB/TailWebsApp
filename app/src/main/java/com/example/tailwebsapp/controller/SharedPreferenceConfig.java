@@ -23,4 +23,16 @@ public class SharedPreferenceConfig {
         return status;
     }
 
+    public void LoginUser(int id){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("login_user", id);
+        editor.commit();
+    }
+
+    public int read_login_user(){
+        int user = 0;
+        user = sharedPreferences.getInt("login_user",0);
+        return user;
+    }
+
 }
